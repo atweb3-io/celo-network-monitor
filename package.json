@@ -23,7 +23,7 @@
     "@celo/contractkit": "3.0.1",
     "@pagerduty/pdjs": "2.2.4",
     "bignumber.js": "9.0.1",
-    "discord-webhook-node": "1.1.8",
+    "discord-webhook-node": "https://github.com/cleot/discord-webhook-node.git",
     "dotenv": "16.0.3",
     "js-yaml": "4.1.0",
     "moment": "2.29.4",
