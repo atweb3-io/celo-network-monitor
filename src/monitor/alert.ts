@@ -75,7 +75,9 @@ export default class Alert implements AlertInterface {
 		if (this.shouldAlert(this.#discordThrottle, alertKey, throttleSeconds)) {
 			console.log(`Discord Info Alerting: ${text}`);
 			this.#discordHook.setUsername("Celo Monitor Service");
-			this.#discordHook.send(text);
+			this.#discordHook.send(text).catch(error => {
+				console.error('Error sending Discord message:', error);
+			});
 		}
 	}
 
@@ -90,7 +92,9 @@ export default class Alert implements AlertInterface {
 				`**${process.env.PD_SOURCE_DESCRIPTOR}**`,
 				"Warning",
 				text
-			);
+			).catch(error => {
+				console.error('Error sending Discord warning:', error);
+			});
 		}
 	}
 
@@ -105,7 +109,9 @@ export default class Alert implements AlertInterface {
 				`**${process.env.PD_SOURCE_DESCRIPTOR}**`,
 				"Warning",
 				text
-			);
+			).catch(error => {
+				console.error('Error sending Discord error:', error);
+			});
 		}
 	}
 
